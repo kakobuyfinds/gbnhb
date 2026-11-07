@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>WheeBuy spreadsheet – find din stil, sammenlign med omtanke</title>
+<meta name="description" content="Dansk guide til WheeBuy spreadsheet: udforsk tøj og sneakers, sammenlign mål, læs QC-billeder og få en enkel tjekliste før dit næste køb.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#2246d2">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="da_DK">
+<meta property="og:title" content="WheeBuy spreadsheet – færre gæt, bedre overblik">
+<meta property="og:description" content="Kategorier, størrelsesguide og konkrete spørgsmål til produktbilleder. En uafhængig dansk inspirationsguide med links til cafans.com.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://images.unsplash.com">
+<style>
+:root{--paper:#f7f5ee;--ink:#20231e;--blue:#2246d2;--yellow:#edfa70;--line:#d6d7cf;--muted:#535950;--white:#fff;--radius:18px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-underline-offset:4px}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:5px}
+img{display:block;width:100%;height:auto;background:#e8e5dd}
+h1,h2,h3,p,figure{margin:0}
+h1,h2,h3{line-height:1.12;letter-spacing:-.04em}
+h1{font-size:clamp(2.8rem,6.2vw,5.6rem);max-width:14ch}
+h2{font-size:clamp(1.9rem,3.5vw,3rem)}
+h3{font-size:1.35rem}
+p{margin-top:1rem}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+.masthead{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0}
+.logo{font-size:1.35rem;font-weight:850;letter-spacing:-.05em;text-decoration:none}
+.edition,.eyebrow{font-size:.75rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase}
+.edition{color:var(--muted)}
+.category-panel{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.category-label{display:flex;justify-content:space-between;gap:12px;margin-bottom:14px}
+.category-label span{color:var(--muted);font-size:.8rem}
+.categories{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.categories a{text-decoration:none;border:1px solid var(--line);border-radius:9px;padding:11px;font-size:.86rem;font-weight:650;transition:background .15s}
+.categories a:hover{background:var(--yellow)}
+.hero{display:grid;grid-template-columns:1.08fr 1fr;gap:48px;align-items:center;padding:50px 0}
+.eyebrow{color:var(--blue);margin-bottom:20px}
+.hero p{max-width:53ch;color:var(--muted)}
+.button{display:inline-flex;align-items:center;justify-content:center;background:var(--blue);color:#fff;padding:14px 22px;border-radius:100px;text-decoration:none;font-weight:750;margin-top:24px}
+.button:hover{background:#1735a8}
+.hero-visual{position:relative}
+.hero-visual img{aspect-ratio:1.15;object-fit:cover;border-radius:120px 18px 18px 18px}
+.image-note{position:absolute;left:16px;bottom:16px;max-width:calc(100% - 32px);background:var(--yellow);padding:10px 14px;border-radius:9px;font-size:.8rem;font-weight:650}
+.caption{font-size:.75rem;color:var(--muted);margin-top:10px}
+.answer{display:grid;grid-template-columns:200px 1fr;background:var(--blue);color:#fff;border-radius:var(--radius);padding:28px;gap:30px}
+.answer h2{font-size:1.1rem;letter-spacing:0}
+.answer p{margin:0;max-width:76ch}
+.section{padding:65px 0;border-bottom:1px solid var(--line)}
+.section-top{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:28px}
+.section-top p{max-width:42ch;color:var(--muted);margin:0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{border-top:3px solid var(--ink);padding-top:18px}
+.number{color:var(--blue);font-size:.8rem;font-weight:800;display:block;margin-bottom:15px}
+.step p{color:var(--muted)}
+.editorial{display:grid;grid-template-columns:.85fr 1.15fr;gap:34px}
+.editorial figure img{aspect-ratio:.9;object-fit:cover;border-radius:var(--radius)}
+.articles{display:grid;gap:20px}
+.article{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.article .eyebrow{margin-bottom:12px}
+.article p{color:var(--muted)}
+.checks{padding-left:20px;margin:18px 0 0}
+.checks li{margin:9px 0}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+table{width:100%;border-collapse:collapse;text-align:left;font-size:.93rem}
+caption{text-align:left;padding:20px;font-weight:750}
+th,td{padding:16px 20px;border-top:1px solid var(--line);vertical-align:top}
+thead{background:#edf0ff}
+th{font-weight:750}
+tbody th{min-width:135px}
+.topics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.topic{padding:23px;background:#eeeee4;border-radius:var(--radius)}
+.topic h3{font-size:1.15rem}
+.topic ul{padding-left:18px;font-size:.9rem;margin:14px 0 0}
+.topic li{margin:12px 0}
+.faq{max-width:850px}
+.faq details{border-bottom:1px solid var(--line);padding:21px 0}
+.faq summary{cursor:pointer;font-weight:750;font-size:1.08rem;line-height:1.4}
+.faq details p{color:var(--muted);max-width:75ch}
+.closing{background:var(--yellow);border-radius:var(--radius);padding:36px;display:flex;gap:30px;align-items:center;justify-content:space-between;margin:50px 0}
+.closing h2{font-size:2rem}
+.closing p{max-width:57ch}
+.closing .button{flex-shrink:0;margin:0}
+footer{padding:0 0 35px;color:var(--muted);font-size:.82rem}
+footer p{max-width:95ch}
+footer .logo{color:var(--ink)}
+@media(min-width:800px){
+.deferred{content-visibility:auto;contain-intrinsic-size:auto 750px}
+}
+@media(max-width:900px){
+.categories{grid-template-columns:repeat(3,1fr)}
+.hero{gap:25px}
+.topics{grid-template-columns:repeat(2,1fr)}
+.editorial{grid-template-columns:1fr 1.3fr}
+}
+@media(max-width:650px){
+.wrap{width:calc(100% - 28px)}
+.edition{font-size:.65rem}
+.category-panel{padding:14px}
+.category-label{display:block}
+.category-label span{display:block;margin-top:4px}
+.categories{grid-template-columns:repeat(2,1fr)}
+.categories a{font-size:.8rem}
+.hero{grid-template-columns:1fr;padding:35px 0;gap:28px}
+.hero-visual img{aspect-ratio:1.45;border-radius:65px 16px 16px 16px}
+.answer{grid-template-columns:1fr;gap:12px;padding:24px}
+.section{padding:42px 0}
+.section-top{display:block}
+.section-top p{margin-top:14px}
+.steps,.editorial,.topics{grid-template-columns:1fr}
+.step{padding-bottom:12px}
+.editorial figure img{aspect-ratio:1.4}
+.article{padding:22px}
+.closing{display:block;padding:25px}
+.closing .button{margin-top:22px}
+th,td{padding:13px;min-width:140px}
+}
+@media(prefers-reduced-motion:reduce){
+*{transition:none!important}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebPage",
+      "name":"WheeBuy spreadsheet – find din stil, sammenlign med omtanke",
+      "inLanguage":"da",
+      "description":"Uafhængig dansk inspirationsguide til kategorier, produktmål og QC-billeder med links til cafans.com.",
+      "about":{"@type":"Thing","name":"WheeBuy spreadsheet"}
+    },
+    {
+      "@type":"Article",
+      "headline":"WheeBuy størrelsesguide: begynd med mål, ikke bogstaver",
+      "inLanguage":"da",
+      "author":{"@type":"Organization","name":"cafans.com"},
+      "articleBody":"Mål et stykke tøj, som allerede passer. Sammenlign brystbredde, længde og ærme med den konkrete variants måleskema. For sko skal du kontrollere, om målet beskriver fodlængde eller indersål. En velkendt størrelsesbetegnelse er ikke nok."
+    },
+    {
+      "@type":"Article",
+      "headline":"WheeBuy QC-billeder: se efter det, der kan undersøges",
+      "inLanguage":"da",
+      "author":{"@type":"Organization","name":"cafans.com"},
+      "articleBody":"Sammenlign billeder af den samme variant i flere vinkler. Se efter farve, symmetri, sømme og lukninger. Et produktfoto er ikke nødvendigvis et QC-billede af den konkrete vare. Fotos alene dokumenterer ikke ægthed eller holdbarhed."
+    },
+    {
+      "@type":"FAQPage",
+      "inLanguage":"da",
+      "mainEntity":[
+        {
+          "@type":"Question",
+          "name":"Hvad er en WheeBuy spreadsheet?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Udtrykket bruges om oversigter over produktfund og links, som folk undersøger i forbindelse med WheeBuy. En oversigt er et udgangspunkt for research; den bekræfter ikke i sig selv lager, pris, kvalitet eller mulighed for at bestille."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Hvor fører links på denne side hen?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Kategoriknapperne fører til de angivne kategorier på cafans.com. Alle øvrige klikbare links fører til https://www.cafans.com. Siden sender dig ikke direkte til WheeBuy."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Hvordan vælger jeg størrelse på sneakers og tøj?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Sammenlign den konkrete variants måleskema med din fodlængde eller med mål fra tøj, der passer. Kontrollér måleenhed og målemetode. Bed om flere oplysninger, hvis skemaet mangler."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Kan QC-billeder bevise, at en vare er ægte?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Nej. QC-billeder kan vise synlige detaljer og fejl, men dokumenterer ikke alene ægthed, materialesammensætning eller holdbarhed. Undersøg sælgerens dokumentation og varens oprindelse særskilt."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Hvad skal med i mit samlede budget?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Notér varepris, eventuel lokal fragt, serviceomkostninger, international fragt og eventuelle importomkostninger. Kontrollér aktuelle beløb og vilkår hos den relevante udbyder før betaling."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Er siden officielt tilknyttet WheeBuy eller de viste mærker?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Nej. Dette er en uafhængig inspirationsguide. Mærkenavne og billeder bruges som visuelle referencer og er ikke dokumentation for samarbejde, lagerstatus eller produkters ægthed."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/gbnhb/">
+</head>
+<body>
+<!--
+index.html
+Research: Google-søgesiden kunne ikke åbnes; offentlig websøgning blev anvendt som alternativ.
+Ti relevante domæner blev undersøgt via resultatuddrag og tilgængelige sider:
+whee-buy.net, grails.fit, sopel.fit, wheebuysheets.com, usfansyupoo.com,
+wheespreadsheet.com, mixfittio.com, findhaul.com, mickeybuys.com, qcradar.com.
+Ingen påstand om verificeret Google-rangering.
+Sekundære emner: WheeBuy produktfund, WheeBuy størrelsesguide,
+WheeBuy QC-billeder, WheeBuy købsguide.
+-->
+<header class="wrap masthead">
+  <a class="logo" href="https://www.cafans.com">cafans.com</a>
+  <span class="edition">Dansk stiljournal / Uafhængig guide</span>
+</header>
+
+<main class="wrap">
+  <nav class="category-panel" aria-label="Produktkategorier på cafans.com">
+    <div class="category-label">
+      <strong>Begynd med en kategori</strong>
+      <span>Åbner kategorier på cafans.com</span>
+    </div>
+    <div class="categories">
+      <a href="https://cafans.com/category-911-Shoes.html">Sko <span lang="en">/ Shoes</span> ↗</a>
+      <a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hættetrøjer / Strik ↗</a>
+      <a href="https://cafans.com/category-913-T-Shirts.html">T-shirts ↗</a>
+      <a href="https://cafans.com/category-914-Jackets.html">Jakker ↗</a>
+      <a href="https://cafans.com/category-915-Pants%2FShorts.html">Bukser / Shorts ↗</a>
+      <a href="https://cafans.com/category-916-Headwear.html">Hovedbeklædning ↗</a>
+      <a href="https://cafans.com/category-917-Sets.html">Sæt ↗</a>
+      <a href="https://cafans.com/category-918-underwear%2Funderpants.html">Undertøj / Underbukser ↗</a>
+      <a href="https://cafans.com/category-919-Jersey.html">Sportstrøjer ↗</a>
+      <a href="https://cafans.com/category-920-Accessories.html">Tilbehør ↗</a>
+    </div>
+  </nav>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div>
+      <div class="eyebrow">Stil starter med et godt overblik</div>
+      <h1 id="hero-title"><span lang="en">WheeBuy spreadsheet.</span> Find din retning.</h1>
+      <p>Sneakers, rolige basislag eller en detalje med karakter? Brug denne danske guide til at indsnævre dine valg, sammenligne oplysninger og stille bedre spørgsmål, før du køber.</p>
+      <a class="button" href="https://www.cafans.com">Udforsk cafans.com ↗</a>
+      <p class="caption">Kategorierne ovenfor er genveje. Billederne er inspiration, ikke verificerede produktannoncer.</p>
+    </div>
+    <figure class="hero-visual">
+      <img
+        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=850&amp;q=80"
+        srcset="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=480&amp;q=75 480w, https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=850&amp;q=80 850w"
+        sizes="(max-width:650px) 94vw, 46vw"
+        width="850"
+        height="739"
+        alt="Rød Nike-sneaker med lys sål på en rød baggrund"
+        fetchpriority="high"
+        decoding="async">
+      <figcaption class="image-note">Farve som fokus. Pasform som udgangspunkt.</figcaption>
+    </figure>
+  </section>
+
+  <aside class="answer" aria-labelledby="short-answer">
+    <h2 id="short-answer">Det korte svar</h2>
+    <p>En <span lang="en">WheeBuy spreadsheet</span> er en oversigt over produktfund og links, som kan hjælpe med din research. Den aktuelle produktside er stedet at kontrollere variant, mål og vilkår. Her får du en uafhængig guide og genveje til cafans.com.</p>
+  </aside>
+
+  <section class="section" aria-labelledby="method-title">
+    <div class="section-top">
+      <h2 id="method-title">Tre valg før ét køb</h2>
+      <p>En praktisk WheeBuy købsguide begynder med dine behov og slutter med de konkrete oplysninger.</p>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <span class="number">01 / RETNING</span>
+        <h3>Vælg anvendelsen</h3>
+        <p>Skal skoene bruges til hverdagsbrug, eller leder du efter et lag til kølige aftener? Vælg først kategori, derefter snit, farve og materiale.</p>
+      </article>
+      <article class="step">
+        <span class="number">02 / SAMMENLIGNING</span>
+        <h3>Gem få produktfund</h3>
+        <p>Begræns dine WheeBuy produktfund til et lille udvalg. Gem kilde, varenummer, variant og de oplysninger, der mangler, så lignende billeder ikke blandes sammen.</p>
+      </article>
+      <article class="step">
+        <span class="number">03 / KONTROL</span>
+        <h3>Åbn og genlæs</h3>
+        <p>Kontrollér, at produktlinket stadig viser den ønskede vare. Sammenlign måleskema, billeddetaljer og samlede omkostninger, før du beslutter dig.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section deferred" aria-labelledby="journal-title">
+    <div class="section-top">
+      <h2 id="journal-title">Noter fra prøverummet</h2>
+      <p>To korte artikler om det, et flot produktfoto ikke fortæller dig.</p>
+    </div>
+    <div class="editorial">
+      <figure>
+        <img
+          src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&amp;fit=crop&amp;w=650&amp;q=75"
+          width="650"
+          height="722"
+          alt="Nike-sneakers i varme orange og brune toner fotograferet ovenfra"
+          loading="lazy"
+          decoding="async">
+        <figcaption class="caption">Sneakerinspiration. Bekræft altid model, materialer og variant på den aktuelle produktside.</figcaption>
+      </figure>
+      <div class="articles">
+        <article class="article">
+          <div class="eyebrow">Artikel / Pasform</div>
+          <h3>WheeBuy størrelsesguide: begynd med mål, ikke bogstaver</h3>
+          <p>Mål et stykke tøj, som allerede passer. Sammenlign brystbredde, længde og ærme med den konkrete variants måleskema. For sko skal du kontrollere, om målet beskriver fodlængde eller indersål. En velkendt størrelsesbetegnelse er ikke nok.</p>
+          <ul class="checks">
+            <li>Ved en <strong>oversized hættetrøje med mål</strong>: se på skulder og brystbredde sammen.</li>
+            <li>Ved <strong>sneakers med størrelsesskema</strong>: kontrollér målemetode og enhed.</li>
+            <li>Ved en <strong>T-shirt med afslappet pasform</strong>: sammenlign længden med dit foretrukne snit.</li>
+          </ul>
+        </article>
+        <article class="article">
+          <div class="eyebrow">Artikel / Billedkontrol</div>
+          <h3>WheeBuy QC-billeder: se efter det, der kan undersøges</h3>
+          <p>Sammenlign billeder af den samme variant i flere vinkler. Se efter farve, symmetri, sømme og lukninger. Et produktfoto er ikke nødvendigvis et QC-billede af den konkrete vare. Fotos alene dokumenterer ikke ægthed eller holdbarhed.</p>
+          <ul class="checks">
+            <li>Ved <strong>QC-billeder af sneakers</strong>: sammenlign begge sko og sålens samlinger.</li>
+            <li>Ved <strong>detaljebilleder af syninger</strong>: efterspørg nærbilleder, hvis noget er uklart.</li>
+            <li>Ved <strong>kontrol af lynlåse og spænder</strong>: et stillbillede viser ikke nødvendigvis funktionen.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section deferred" aria-labelledby="compare-title">
+    <div class="section-top">
+      <h2 id="compare-title">Sammenlign det samme</h2>
+      <p>Mærkenavnet kan indsnævre en søgning. Den konkrete variant afgør, om sammenligningen giver mening.</p>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <caption>Enkle kontrolpunkter efter produkttype</caption>
+        <thead>
+          <tr>
+            <th scope="col">Inspiration</th>
+            <th scope="col">Undersøg først</th>
+            <th scope="col">Spørg, hvis det mangler</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Nike / Sneakers</th>
+            <td>Modelbetegnelse, fodlængde og anvendelse.</td>
+            <td>Er målene fra den valgte model og størrelse?</td>
+          </tr>
+          <tr>
+            <th scope="row">Louis Vuitton / Tasker</th>
+            <td>Bredde, højde, remmens længde og lukning.</td>
+            <td>Viser billederne den præcise variant og dens indvendige rum?</td>
+          </tr>
+          <tr>
+            <th scope="row">Gucci / Beklædning</th>
+            <td>Materialeangivelse, snit og måleskema.</td>
+            <td>Er mål oplyst for selve tøjet eller for kroppen?</td>
+          </tr>
+          <tr>
+            <th scope="row">Hermès / Tilbehør</th>
+            <td>Mål, materiale, overflade og vedligeholdelse.</td>
+            <td>Hvilken dokumentation findes der for oprindelse og materialer?</td>
+          </tr>
+          <tr>
+            <th scope="row">Dior / Hovedbeklædning</th>
+            <td>Omkreds, dybde og justeringsmuligheder.</td>
+            <td>Kan sælgeren vise inderside, etiket og lukning?</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption">Mærkerne er eksempler til research. Tabellen bekræfter ikke sortiment, tilgængelighed eller ægthed hos cafans.com.</p>
+  </section>
+
+  <section class="section deferred" aria-labelledby="topics-title">
+    <div class="section-top">
+      <h2 id="topics-title">Gør din søgning mere præcis</h2>
+      <p>Tilføj den egenskab, der betyder mest. Disse emner hjælper dig videre uden at gøre søgningen unødigt bred.</p>
+    </div>
+    <div class="topics">
+      <article class="topic">
+        <h3>Sko &amp; bevægelse</h3>
+        <ul>
+          <li><strong>Hverdagssneakers i neutrale farver:</strong> sammenlign med tøjet, du bruger mest.</li>
+          <li><strong>Lave sneakers med flad sål:</strong> undersøg sålens opbygning og fleksibilitet.</li>
+          <li><strong>Sneakers til brede fødder:</strong> efterspørg oplysninger om forfodens plads.</li>
+          <li><strong>Sammenligning af skostørrelser i cm:</strong> brug samme målemetode for begge modeller.</li>
+          <li><strong>Materialer i sneakerens overdel:</strong> læs beskrivelsen frem for at gætte ud fra glans.</li>
+        </ul>
+      </article>
+      <article class="topic">
+        <h3>Lag &amp; proportioner</h3>
+        <ul>
+          <li><strong>Hættetrøje med sænket skulder:</strong> vurder både bredde og ærmelængde.</li>
+          <li><strong>Striktrøje med materialebeskrivelse:</strong> læs også vaskeanvisningen.</li>
+          <li><strong>Let jakke til lag på lag:</strong> giv plads til det inderste lag.</li>
+          <li><strong>T-shirt med oplyst stofvægt:</strong> brug vægten sammen med materiale og snit.</li>
+          <li><strong>Matchende sæt i samme farve:</strong> kontrollér delene og størrelserne hver for sig.</li>
+        </ul>
+      </article>
+      <article class="topic">
+        <h3>Pasform &amp; detaljer</h3>
+        <ul>
+          <li><strong>Bukser med taljemål og indersøm:</strong> sammenlign med et par, der passer.</li>
+          <li><strong>Shorts med justerbar talje:</strong> kontrollér justeringsområdet.</li>
+          <li><strong>Sportstrøje med trykte detaljer:</strong> se efter placering og nærbilleder.</li>
+          <li><strong>Kasket med justerbar omkreds:</strong> undersøg også kronens dybde.</li>
+          <li><strong>Undertøj med tydelig materialesammensætning:</strong> læs produktets plejeoplysninger.</li>
+        </ul>
+      </article>
+      <article class="topic">
+        <h3>Tilbehør &amp; overblik</h3>
+        <ul>
+          <li><strong>Taske med oplyste dimensioner:</strong> mål det, du vil have plads til.</li>
+          <li><strong>Smykker med materialedokumentation:</strong> bed om præcise oplysninger om metal og belægning.</li>
+          <li><strong>Bælte med længdemål:</strong> afklar, hvorfra længden måles.</li>
+          <li><strong>Produktlinks med varenummer:</strong> gem nummer og variant sammen.</li>
+          <li><strong>Samlet budget før bestilling:</strong> medregn relevante fragt- og serviceomkostninger.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section deferred" aria-labelledby="faq-title">
+    <div class="section-top">
+      <h2 id="faq-title">Spørgsmål, du kan bruge svaret på</h2>
+      <p>Direkte svar til dig, der starter med en WheeBuy spreadsheet og vil undersøge et fund nærmere.</p>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Hvad er en WheeBuy spreadsheet?</summary>
+        <p>Udtrykket bruges om oversigter over produktfund og links, som folk undersøger i forbindelse med WheeBuy. En oversigt er et udgangspunkt for research; den bekræfter ikke i sig selv lager, pris, kvalitet eller mulighed for at bestille.</p>
+      </details>
+      <details>
+        <summary>Hvor fører links på denne side hen?</summary>
+        <p>Kategoriknapperne fører til de angivne kategorier på cafans.com. Alle øvrige klikbare links fører til https://www.cafans.com. Siden sender dig ikke direkte til WheeBuy.</p>
+      </details>
+      <details>
+        <summary>Hvordan vælger jeg størrelse på sneakers og tøj?</summary>
+        <p>Sammenlign den konkrete variants måleskema med din fodlængde eller med mål fra tøj, der passer. Kontrollér måleenhed og målemetode. Bed om flere oplysninger, hvis skemaet mangler.</p>
+      </details>
+      <details>
+        <summary>Kan QC-billeder bevise, at en vare er ægte?</summary>
+        <p>Nej. QC-billeder kan vise synlige detaljer og fejl, men dokumenterer ikke alene ægthed, materialesammensætning eller holdbarhed. Undersøg sælgerens dokumentation og varens oprindelse særskilt.</p>
+      </details>
+      <details>
+        <summary>Hvad skal med i mit samlede budget?</summary>
+        <p>Notér varepris, eventuel lokal fragt, serviceomkostninger, international fragt og eventuelle importomkostninger. Kontrollér aktuelle beløb og vilkår hos den relevante udbyder før betaling.</p>
+      </details>
+      <details>
+        <summary>Er siden officielt tilknyttet WheeBuy eller de viste mærker?</summary>
+        <p>Nej. Dette er en uafhængig inspirationsguide. Mærkenavne og billeder bruges som visuelle referencer og er ikke dokumentation for samarbejde, lagerstatus eller produkters ægthed.</p>
+      </details>
+    </div>
+  </section>
+
+  <aside class="closing">
+    <div>
+      <h2>Et godt fund tåler et ekstra kig.</h2>
+      <p>Begynd med kategorien, behold de relevante muligheder, og kontrollér oplysningerne på den aktuelle produktside.</p>
+    </div>
+    <a class="button" href="https://www.cafans.com">Se mere på cafans.com ↗</a>
+  </aside>
+</main>
+
+<footer class="wrap">
+  <a class="logo" href="https://www.cafans.com">cafans.com</a>
+  <p>Uafhængig dansk inspirationsguide om WheeBuy spreadsheet. Ingen officiel tilknytning til WheeBuy, Nike, Louis Vuitton, Gucci, Hermès eller Dior. Billederne er illustrative; de dokumenterer ikke produkter på destinationen. Produktdata og vilkår skal kontrolleres ved kilden.</p>
+</footer>
+</body>
+</html>
